@@ -19,7 +19,7 @@ namespace SpecFlowAhorcado.Specs.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("Ahorcado", Description="\tPara evitar errores voy a insertar caracteres invalidos", SourceFile="Features\\Ahoracado.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("Ahorcado", Description="\tTests de aceptacion en el proceso de juego del Ahorcado", SourceFile="Features\\Ahorcado.feature", SourceLine=0)]
     public partial class AhorcadoFeature
     {
         
@@ -27,14 +27,14 @@ namespace SpecFlowAhorcado.Specs.Features
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "Ahoracado.feature"
+#line 1 "Ahorcado.feature"
 #line hidden
         
         [TechTalk.SpecRun.FeatureInitialize()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Ahorcado", "\tPara evitar errores voy a insertar caracteres invalidos", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Ahorcado", "\tTests de aceptacion en el proceso de juego del Ahorcado", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -71,11 +71,11 @@ namespace SpecFlowAhorcado.Specs.Features
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Ingresar caracter invalido en un juego", new string[] {
-                "ingresoCaracterInvalido"}, SourceLine=4)]
+                "IngresoCaracterInvalido"}, SourceLine=4)]
         public virtual void IngresarCaracterInvalidoEnUnJuego()
         {
             string[] tagsOfScenario = new string[] {
-                    "ingresoCaracterInvalido"};
+                    "IngresoCaracterInvalido"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Ingresar caracter invalido en un juego", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 5
@@ -109,6 +109,50 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 9
  testRunner.Then("el sistema deberia decirme: Ingrese un caracter valido", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Ingresar palabra incorrecta en un juego", new string[] {
+                "IngresoPalabraIncorrecta"}, SourceLine=11)]
+        public virtual void IngresarPalabraIncorrectaEnUnJuego()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "IngresoPalabraIncorrecta"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Ingresar palabra incorrecta en un juego", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 12
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 13
+ testRunner.Given("presiono jugar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 14
+ testRunner.And("ingreso la palabra: equivocada", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 15
+ testRunner.When("presiono arriesgar palabra", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 16
+ testRunner.Then("el sistema me dice: Has perdido", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
