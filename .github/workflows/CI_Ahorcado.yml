@@ -80,7 +80,7 @@ jobs:
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
   
   
-#        # Deployment to Azure
+#        # Deployment to Azure #
 #      - name: Deploy to Azure
 #        uses: azure/webapps-deploy@v2
 #        with:
