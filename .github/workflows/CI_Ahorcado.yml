@@ -80,9 +80,6 @@ jobs:
   
   
         # Deployment to Azure
-      #- name: Publish App
-      #  run: |
-      #    dotnet publish -c Release -o dotnetcorewebapp
       - name: Deploy to Azure
         uses: azure/webapps-deploy@v2
         with:
