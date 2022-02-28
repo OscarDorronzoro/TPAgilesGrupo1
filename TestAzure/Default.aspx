@@ -4,7 +4,7 @@
 
     <div class="jumbotron">
         <h1>Ahorcado</h1>
-        <p class="lead">Este es el juego del ahorcado desarrollado mediante metodologias agiles.</p>
+        <p class="lead">Este es el juego del ahorcado desarrollado mediante metodologias agiles. Esta frase es para probar el deploy mediante Github Actions.</p>
         <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
     </div>
 
