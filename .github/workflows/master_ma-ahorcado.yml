@@ -1,8 +1,6 @@
 name: Azure deploy
-on:
-  push:
-    branches: 
-      - master
+on: [workflow_dispatch]
+
 env:
   AZURE_WEBAPP_NAME: ma-ahorcado
   AZURE_WEBAPP_PACKAGE_PATH: '.'
