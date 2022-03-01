@@ -27,25 +27,25 @@ jobs:
 
       - name: Build Solution
         run: |
-          msbuild.exe .\TPAgilesGrupo1\Hangman.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          msbuild.exe .\Hangman\Hangman.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
           cd .\TPAgilesGrupo1\build && dir
           
-          msbuild.exe .\TPAgilesGrupo1\Hangman.Data.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          msbuild.exe .\Hangman.Data\Hangman.Data.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
           cd .\TPAgilesGrupo1\build && dir
           
-          msbuild.exe .\TPAgilesGrupo1\Hangman.Database.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          msbuild.exe .\Hangman.Database\Hangman.Database.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
           cd .\TPAgilesGrupo1\build && dir
           
-          msbuild.exe .\TPAgilesGrupo1\Hangman.infrastructure.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          msbuild.exe .\angman.infrastructure\Hangman.infrastructure.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
           cd .\TPAgilesGrupo1\build && dir
           
-          msbuild.exe .\TPAgilesGrupo1\Hangman.Test.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          msbuild.exe .\Hangman.Test\Hangman.Test.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
           cd .\TPAgilesGrupo1\build && dir
           
-          msbuild.exe .\TPAgilesGrupo1\Hangman.Web.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          msbuild.exe .\Hangman.Web\Hangman.Web.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
           cd .\TPAgilesGrupo1\build && dir
           
-          msbuild.exe .\TPAgilesGrupo1\SpecFlowProject.Specs.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          msbuild.exe .\SpecFlowProject.Specs\SpecFlowProject.Specs.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
           cd .\TPAgilesGrupo1\build && dir
           
         # Unit Testing
