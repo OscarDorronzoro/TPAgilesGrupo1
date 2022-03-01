@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Welcome to the hangman game</h1>
+<br />
+<form action="Game/Index" method="post">
+    <div class="row" style="justify-content: center;">
+        <div class="col-12 mt-2">
+            <label class="control-label font-weight-bold"> What's your name? </label>
+            <input id="Name" class="form-control" name="name" required />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <input class="text-center btn btn-danger btn-block mt-4" type="submit" name="play" value="Play!" />
+        </div>
+    </div>
+</form>
+<br />
