@@ -32,7 +32,29 @@ jobs:
 
       - name: Build Solution
         run: |
-          dotnet run .\AgilesGrupoCondor.sln /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          msbuild.exe .\Hangman\Hangman.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          cd .\Hangman\build && dir
+          cd ..\..
+          
+          msbuild.exe .\Hangman.Data\Hangman.Data.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          cd .\Hangman.Data\build && dir
+          cd ..\..
+          
+          msbuild.exe .\Hangman.infrastructure\Hangman.infrastructure.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          cd .\Hangman.infrastructure\build && dir
+          cd ..\..
+          
+          msbuild.exe .\Hangman.Test\Hangman.Test.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          cd .\Hangman.Test\build && dir
+          cd ..\..
+          
+          msbuild.exe .\Hangman.Web\Hangman.Web.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          cd .\Hangman.Web\build && dir
+          cd ..\..
+          
+          msbuild.exe .\SpecFlowProject.Specs\SpecFlowProject.Specs.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          cd .\SpecFlowProject.Specs\build && dir
+          cd ..\..
           
           
         # Unit Testing
