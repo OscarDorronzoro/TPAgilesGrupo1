@@ -27,7 +27,7 @@ jobs:
 
       - name: Build Solution
         run: |
-          msbuild.exe .\AgilesGrupoCondor.sln /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          dotnet run -p .\AgilesGrupoCondor.sln /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
           
         # Unit Testing
       - name: Run Tests
