@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Hangman.Data.Interfaces;
+﻿using Hangman.Data.Interfaces;
 using Hangman.Data.Models;
 using Hangman.infrastructure.Repository;
 using Hangman.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Hangman.Web.Controllers
 {
@@ -25,7 +25,7 @@ namespace Hangman.Web.Controllers
 
         [HttpPost]
         [Route("api/start")]
-        public async Task<IActionResult> StartGame([FromBody]GameViewModel gameViewModel)
+        public async Task<IActionResult> StartGame([FromBody] GameViewModel gameViewModel)
         {
             if (gameViewModel is null)
             {
@@ -72,7 +72,7 @@ namespace Hangman.Web.Controllers
                 try
                 {
                     var actualGame = await _gameRepo.GetByIdAsync(guesLetterViewModel.GameId);
-                
+
                     //Check for the letter
                     //Return correct or bad guess
                     _game.Guess(guesLetterViewModel.Letter);
@@ -85,6 +85,6 @@ namespace Hangman.Web.Controllers
                 }
             }
         }
-        
+
     }
 }

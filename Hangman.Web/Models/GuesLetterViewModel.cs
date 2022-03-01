@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Hangman.Web.Models
+﻿namespace Hangman.Web.Models
 {
     public class GuesLetterViewModel
     {

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Hangman.Data.Models;
+using Hangman.infrastructure.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Hangman.Data.Models;
-using Hangman.Data;
-using Hangman.infrastructure.Repository;
+using System.Threading.Tasks;
 
 namespace Hangman.Web.Controllers
 {
@@ -96,7 +93,7 @@ namespace Hangman.Web.Controllers
                 catch (DbUpdateConcurrencyException)
                 {
                     var temp = UsersExistsAsync(users.Id);
-                    if (temp == null) 
+                    if (temp == null)
                     {
                         return NotFound();
                     }

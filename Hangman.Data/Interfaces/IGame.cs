@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
-using System.Timers;
 
 namespace Hangman.Data.Interfaces
 {
-    public interface IGame {
+    public interface IGame
+    {
         IGame Start(string username);
         IGame Config(string word, int tries = 0);
         IGame Config(List<string> word, int tries = 0);
@@ -21,5 +20,5 @@ namespace Hangman.Data.Interfaces
         int Tries { get; set; }
         bool InvalidLetter { get; set; }
     }
-    
+
 }

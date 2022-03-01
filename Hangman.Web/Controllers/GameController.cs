@@ -1,13 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Hangman.Web.Models;
-using Hangman.Data.Interfaces;
-using Hangman.infrastructure.Repository;
+﻿using Hangman.Data.Interfaces;
 using Hangman.Data.Models;
-using System.Collections.Generic;
+using Hangman.infrastructure.Repository;
+using Hangman.Web.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Security.Cryptography;
+using System.Collections.Generic;
 
 namespace Hangman.Web.Controllers
 {
@@ -140,7 +137,7 @@ namespace Hangman.Web.Controllers
 
             var randomGenerator = new Random();
 
-            return randomString[randomGenerator.Next(0,9)];
+            return randomString[randomGenerator.Next(0, 9)];
         }
     }
 }

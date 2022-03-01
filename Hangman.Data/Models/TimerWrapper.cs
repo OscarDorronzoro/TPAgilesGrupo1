@@ -1,7 +1,4 @@
 ﻿using Hangman.Data.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Timers;
 
 namespace Hangman.Data.Models

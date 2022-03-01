@@ -40,7 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Desktop\MetodologiasAgiles-master\Hangman.infrastructure\Hangman.infrastructure.csproj" />
+    <ProjectReference Include="..\Hangman.infrastructure\Hangman.infrastructure.csproj" />
     <ProjectReference Include="..\Hangman\Hangman.csproj" />
   </ItemGroup>
 

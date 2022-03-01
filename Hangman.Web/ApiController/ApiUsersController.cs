@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Hangman.Data;
-using Hangman.Data.Models;
+﻿using Hangman.Data.Models;
 using Hangman.infrastructure.Repository;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Hangman.Web.Controllers
 {
@@ -31,7 +26,7 @@ namespace Hangman.Web.Controllers
             {
                 users = await _Users.GetAllAsync();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest($"Couldn't access the clients. Ex: {ex}");
             }
@@ -46,7 +41,7 @@ namespace Hangman.Web.Controllers
             {
                 await _Users.InsertAsync(user);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest($"Error when creating a user. Ex: {ex}");
             }

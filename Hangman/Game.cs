@@ -1,12 +1,13 @@
-using System.Collections.Generic;
-using System;
 using Hangman.Data.Interfaces;
 using Hangman.Data.Models;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace Hangman{
-    public class Game : IGame {
+namespace Hangman
+{
+    public class Game : IGame
+    {
 
         public string Username { get; set; }
         public string Word { get; set; }
@@ -19,7 +20,7 @@ namespace Hangman{
         public int Fails { get; set; }
         public Dictionary<double, int> Score { get; set; }
         private ITimer _Time { get; set; }
-        public bool InvalidLetter {get; set;}
+        public bool InvalidLetter { get; set; }
         public Game(ITimer timer)
         {
             this.InvalidLetter = false;
@@ -48,11 +49,12 @@ namespace Hangman{
             this.RandomWords = null;
             this.ListOfWords = false;
         }
-        public IGame Start(string username){
+        public IGame Start(string username)
+        {
             this.Fails = 0;
             this.Attempts = new List<string>();
             this.Score = new Dictionary<double, int>();
-            this.Instructions ="El objetivo de este juego es adivinar la palabra secreta que ha pensado " +
+            this.Instructions = "El objetivo de este juego es adivinar la palabra secreta que ha pensado " +
             "el otro jugador. Debes lograrlo antes de ser 'ahorcado'. Para esto debes seguir las siguientes reglas: " +
             "\n1. Puedes adivinar tirando letras al azar. Cada letra erronéa es un intento que se resta. No se permiten números" +
             "\n2. Tienes 6 oportunidades, una correspondiente a cada parte del muñeco que se va a dibujar " +
@@ -69,7 +71,8 @@ namespace Hangman{
             return this;
         }
 
-        public IGame Config(string word, int tries = 0){
+        public IGame Config(string word, int tries = 0)
+        {
             this.Word = word;
             this.Tries = tries;
             Debug.WriteLine($"- Game Created - Word with {this.Word.Length} letters - Tries {this.Tries}");
@@ -125,7 +128,7 @@ namespace Hangman{
         {
             return this._Time.GetTimer();
         }
-  
+
         private void CheckTries(string letter)
         {
             if (this.Tries == 0)
@@ -152,15 +155,15 @@ namespace Hangman{
                 {
                     foreach (char letter in letters)
                     {
-                        char letra = char.Parse(let); 
-                        if(letra == letter)
+                        char letra = char.Parse(let);
+                        if (letra == letter)
                         {
                             aux++;
                         }
                     }
                 }
             }
-            if(aux == Cant)
+            if (aux == Cant)
             {
                 this.Adivina = true;
                 Debug.WriteLine($"- You win -  {this.Username}");

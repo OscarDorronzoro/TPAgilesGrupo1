@@ -1,7 +1,6 @@
-﻿using TechTalk.SpecFlow;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Hangman;
-using Hangman.Data.Interfaces;
+using TechTalk.SpecFlow;
 
 namespace SpecFlowAhorcado.Specs.Steps
 {

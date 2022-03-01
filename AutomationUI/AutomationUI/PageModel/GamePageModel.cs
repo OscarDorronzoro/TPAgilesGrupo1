@@ -1,6 +1,5 @@
 ﻿using CognizantSoftvision.Maqs.BaseSeleniumTest;
 using CognizantSoftvision.Maqs.BaseSeleniumTest.Extensions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 
 namespace PageModel
@@ -49,7 +48,7 @@ namespace PageModel
         {
             get { return this.GetLazyElement(By.Id("letterUsed"), "Letter Used"); }
         }
-        
+
         /// <summary>
         /// Check if the home page has been loaded
         /// </summary>
@@ -78,7 +77,7 @@ namespace PageModel
         {
             this.GuessButton.Click();
         }
-        
+
         /// <summary>
         /// Enter the use credentials
         /// </summary>

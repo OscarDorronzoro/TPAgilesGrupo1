@@ -1,11 +1,12 @@
+using Hangman.Data.Interfaces;
+using Moq;
 using System.Collections.Generic;
 using Xunit;
-using Moq;
-using Hangman.Data.Interfaces;
 
 namespace Hangman.Test
 {
-    public class GameTest {
+    public class GameTest
+    {
 
         private readonly IGame _game;
         private readonly Mock<ITimer> _time;
@@ -42,14 +43,16 @@ namespace Hangman.Test
 
         [Theory]
         [InlineData("Hernan", "Ingenieria")]
-        public void CreateNewGameWithWordTest(string username, string word) {
+        public void CreateNewGameWithWordTest(string username, string word)
+        {
             _game.Start(username).Config(word);
             Assert.Equal("Ingenieria", _game.Word);
         }
 
         [Theory]
         [InlineData("Hernan", "Ingenieria", "I")]
-        public void InsertLetterTest(string username, string word, string letter) {
+        public void InsertLetterTest(string username, string word, string letter)
+        {
             _game.Start(username).Config(word).Guess(letter);
             Assert.Equal(_game.Attempts[0], letter);
         }
@@ -64,14 +67,16 @@ namespace Hangman.Test
 
         [Theory]
         [InlineData("Hernan", "Ingenieria", "I")]
-        public void CorrectLetterTest(string username, string word, string letter) {
+        public void CorrectLetterTest(string username, string word, string letter)
+        {
             _game.Start(username).Config(word).Guess(letter);
             Assert.Equal(0, _game.Fails);
         }
 
         [Theory]
         [InlineData("Hernan", "Ingenieria", "D")]
-        public void NumberOfFailsTest(string username, string word, string letter) {
+        public void NumberOfFailsTest(string username, string word, string letter)
+        {
             _game.Start(username).Config(word).Guess(letter);
             Assert.Equal(1, _game.Fails);
         }

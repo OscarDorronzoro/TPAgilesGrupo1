@@ -1,6 +1,5 @@
-using System;
 using Hangman.Data.Models;
-using Hangman.Data.Interfaces;
+using System;
 using System.Diagnostics;
 
 namespace Hangman
