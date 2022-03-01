@@ -28,25 +28,25 @@ jobs:
       - name: Build Solution
         run: |
           msbuild.exe .\Hangman\Hangman.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
-          cd .\TPAgilesGrupo1\build && dir
+          cd .\Hangman\build && dir
           
           msbuild.exe .\Hangman.Data\Hangman.Data.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
-          cd .\TPAgilesGrupo1\build && dir
+          cd .\Hangman.Data\build && dir
           
           msbuild.exe .\Hangman.Database\Hangman.Database.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
-          cd .\TPAgilesGrupo1\build && dir
+          cd .\Hangman.Database\build && dir
           
-          msbuild.exe .\angman.infrastructure\Hangman.infrastructure.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
-          cd .\TPAgilesGrupo1\build && dir
+          msbuild.exe .\Hangman.infrastructure\Hangman.infrastructure.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          cd .\Hangman.infrastructure\build && dir
           
           msbuild.exe .\Hangman.Test\Hangman.Test.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
-          cd .\TPAgilesGrupo1\build && dir
+          cd .\Hangman.Test\build && dir
           
           msbuild.exe .\Hangman.Web\Hangman.Web.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
-          cd .\TPAgilesGrupo1\build && dir
+          cd .\Hangman.Web\build && dir
           
           msbuild.exe .\SpecFlowProject.Specs\SpecFlowProject.Specs.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
-          cd .\TPAgilesGrupo1\build && dir
+          cd .\SpecFlowProject.Specs\build && dir
           
         # Unit Testing
       - name: Run Tests
