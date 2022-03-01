@@ -27,9 +27,27 @@ jobs:
 
       - name: Build Solution
         run: |
-          msbuild.exe .\TPAgilesGrupo1\TPAgilesGrupo1.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          msbuild.exe .\TPAgilesGrupo1\Hangman.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
           cd .\TPAgilesGrupo1\build && dir
-      
+          
+          msbuild.exe .\TPAgilesGrupo1\Hangman.Data.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          cd .\TPAgilesGrupo1\build && dir
+          
+          msbuild.exe .\TPAgilesGrupo1\Hangman.Database.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          cd .\TPAgilesGrupo1\build && dir
+          
+          msbuild.exe .\TPAgilesGrupo1\Hangman.infrastructure.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          cd .\TPAgilesGrupo1\build && dir
+          
+          msbuild.exe .\TPAgilesGrupo1\Hangman.Test.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          cd .\TPAgilesGrupo1\build && dir
+          
+          msbuild.exe .\TPAgilesGrupo1\Hangman.Web.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          cd .\TPAgilesGrupo1\build && dir
+          
+          msbuild.exe .\TPAgilesGrupo1\SpecFlowProject.Specs.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          cd .\TPAgilesGrupo1\build && dir
+          
         # Unit Testing
       - name: Run Tests
         run: vstest.console.exe .\TPAgilesGrupo1\build\TPAgilesGrupo1.dll
