@@ -23,7 +23,7 @@ jobs:
 
       - name: Restore nuget packages
         run: |
-          nuget restore .\TPAgilesGrupo1.sln
+          nuget restore .\AgilesGrupoCondor.sln
 
       - name: Build Solution
         run: |
