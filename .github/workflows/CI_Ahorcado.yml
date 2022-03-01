@@ -32,7 +32,7 @@ jobs:
 
       - name: Build Solution
         run: |
-          dotnet run --project .\AgilesGrupoCondor.sln /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          dotnet run .\AgilesGrupoCondor.sln /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
           
           
         # Unit Testing
