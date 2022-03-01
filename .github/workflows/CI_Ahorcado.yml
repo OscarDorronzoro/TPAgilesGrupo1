@@ -37,7 +37,7 @@ jobs:
           
         # Unit Testing
       - name: Run Tests
-        run: vstest.console.exe .\TPAgilesGrupo1\build\TPAgilesGrupo1.dll
+        run: vstest.console.exe .\build\AgilesGrupoCondor.dll
       
       
         # SonarQube
