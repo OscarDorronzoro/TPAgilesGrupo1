@@ -1,0 +1,73 @@
+﻿@model Hangman.Web.Models.GameViewModel;
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string urlImg = "/img/"+@Model.Tries.ToString()+".png";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>   
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <h1 id="welcomeMessage">Hello @Model.Name</h1>
+    <h2 id="instrucciones">Instrucciones</h2>
+    <p>@Model.Instructions</p>
+    <p>@Model.Tries Tries </p>
+    <script>UpdateImg();</script>
+    <div class=" text-center">
+
+        <img class="img-fluid mb-4" src=@urlImg />
+    </div>
+    @if (Model.Lose)
+    {
+        <div class="jumbotron mt-2">
+            <div id="lost" class="lead">You loss!</div>
+        </div>
+        <a href="/">Go Home</a>
+    }
+    else if (Model.Win)
+    {
+        <div class="jumbotron mt-2">
+            <div id="won" class="lead">You win!</div>
+        </div>
+        <a href="/">Go Home</a>
+    }
+    else
+    {
+        <form asp-action="Guess">
+            <label>Letter <input maxlength="1" pattern="[A-Za-z]" name="Letter" type="text" required /></label>
+            <button id="guess" type="submit" class="btn btn-danger btn-block">Guess</button>
+        </form>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="lead">Letter used</div>
+                @foreach (var temp in Model.Attemps)
+                {
+                    <div id="letterUsed" class="text-muted d-inline">@temp</div>
+                }
+            </div>
+            <div class="col-md-6">
+                <div class="lead">Word</div>
+                @foreach (var a in Model.Word)
+                {
+                    if (Model.Attemps.Contains(a.ToString()))
+                    {
+                        <div id="correct" class="text-muted d-inline font-weight-bold">@a</div>
+                    }
+                    else
+                    {
+                        <div class="text-muted d-inline">-</div>
+                    }
+                }
+                @Model.Word
+            </div>
+        </div>
+    }
+</body>
+</html>
