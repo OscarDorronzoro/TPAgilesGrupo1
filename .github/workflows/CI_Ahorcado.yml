@@ -28,14 +28,12 @@ jobs:
 
       - name: Restore nuget packages
         run: |
-          nuget restore .\TPAgilesGrupo1.sln
+          nuget restore .\AgilesGrupoCondor.sln
 
       - name: Build Solution
         run: |
-          msbuild.exe .\TPAgilesGrupo1\TPAgilesGrupo1.csproj /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
-          cd .\TPAgilesGrupo1\build && dir
-      
-      
+          msbuild.exe .\AgilesGrupoCondor.sln /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+
         # Unit Testing
       - name: Run Tests
         run: vstest.console.exe .\TPAgilesGrupo1\build\TPAgilesGrupo1.dll
