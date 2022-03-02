@@ -106,10 +106,10 @@ namespace Hangman.Test
         [Theory]
         [InlineData("Hernan", "Ingenieria", "El objetivo de este juego es adivinar la palabra secreta que ha pensado " +
             "el otro jugador. Debes lograrlo antes de ser 'ahorcado'. Para esto debes seguir las siguientes reglas: " +
-            "\n2. Puedes adivinar tirando letras al azar. Cada letra erronéa es un intento que se resta. No se permiten números" +
-            "\n3. Tienes 6 oportunidades, una correspondiente a cada parte del muñeco que se va a dibujar " +
+            "\n1. Puedes adivinar tirando letras al azar. Cada letra erronéa es un intento que se resta. No se permiten números" +
+            "\n2. Tienes 6 oportunidades, una correspondiente a cada parte del muñeco que se va a dibujar " +
             "(cabeza, torso, dos brazos, dos piernas). Cuando se terminas los intentos, pierdes." +
-            "\n4. Puedes saber la cantidad de letras que posee la palabra a adivinar.")]
+            "\n3. Puedes saber la cantidad de letras que posee la palabra a adivinar.")]
         public void ValidateInstructions(string username, string word, string instructions)
         {
             _game.Start(username).Config(word);
