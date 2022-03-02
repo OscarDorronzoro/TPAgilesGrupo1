@@ -3,6 +3,17 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Ignore manually compiled files (testing comands for CI server)
+Hangman/build/
+Hangman.Data/build/
+Hangman.infrastructure/build/
+Hangman.Tests/build/
+Hangman.Web/build/
+SpecFlowProject.Specs/build/
+AutomationUI/AutomationUI/PageModel/
+AutomationUI/AutomationUI/Tests/
+
+
 # User-specific files
 *.rsuser
 *.suo
