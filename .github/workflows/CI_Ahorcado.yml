@@ -37,7 +37,7 @@ jobs:
           
         # Unit Testing
       - name: Run Unit Tests
-        run: vstest.console.exe Hangman.Test\build\Hangman.Test.dll
+        run: vstest.console.exe \build\Hangman.Test\Hangman.Test.dll
       
       
         # SonarQube
