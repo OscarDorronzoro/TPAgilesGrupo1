@@ -9,9 +9,9 @@ namespace Hangman.Data
         {
         }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            builder.Entity<Users>().HasData(
+            modelBuilder.Entity<Users>().HasData(
                 new Users
                 {
                     Id = 1,

@@ -13,7 +13,7 @@ namespace Hangman.Web.Controllers
     [ApiController]
     public class ApiGameController : ControllerBase
     {
-        private IGame _game;
+        private readonly IGame _game;
         private readonly IRepository<Games> _gameRepo;
         private readonly IRepository<Users> _usersRepo;
         public ApiGameController(IGame game, IRepository<Games> gameRepository, IRepository<Users> usersRepository)
