@@ -5,6 +5,7 @@ using Hangman.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 namespace Hangman.Web.Controllers
 {
@@ -135,9 +136,9 @@ namespace Hangman.Web.Controllers
                 "rosario",
             };
 
-            var randomGenerator = new Random();
+            int randomIndex = RandomNumberGenerator.GetInt32(randomString.Count - 1);
 
-            return randomString[randomGenerator.Next(0, 9)];
+            return randomString[randomIndex];
         }
     }
 }
