@@ -32,12 +32,6 @@ jobs:
         run: |
           msbuild.exe .\AgilesGrupoCondor.sln /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
           
-  unit_tests:
-    runs-on: windows-latest
-    name: Run Unit Tests
-    needs: build
-
-    steps:
       - name: Run Unit Tests
         run: vstest.console.exe .\Hangman.Tests\build\Hangman.Test.dll
       
