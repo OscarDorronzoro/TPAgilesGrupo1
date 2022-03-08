@@ -1,14 +1,15 @@
-name: Build and deploy .NET Core application to Web App ma-ahorcado
+name: Build and deploy .NET Core application to Azure Web App ma-ahorcado
 on:
   push:
-    branches:
-    - master
+    branches: [master]
+
 env:
   AZURE_WEBAPP_NAME: ma-ahorcado
   AZURE_WEBAPP_PACKAGE_PATH: Hangman.Web\published
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 5.0.x
   WORKING_DIRECTORY: Hangman.Web
+
 jobs:
   build:
     runs-on: windows-latest

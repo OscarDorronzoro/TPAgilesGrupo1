@@ -1,0 +1,43 @@
+name: Run Unit Tests
+on:
+  push:
+    branches: [master, development]
+  
+  pull_request:
+    branches: [master, development]
+
+jobs:
+  build:
+    runs-on: [windows-latest]    
+    name: Build DotNet Solution
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2.3.4
+        
+      - name: setup-msbuild
+        uses: microsoft/setup-msbuild@v1.0.3
+        
+      - name: Setup NuGet.exe for use with actions
+        uses: NuGet/setup-nuget@v1.0.5
+  
+      - name: Setup VSTest
+        uses: darenm/Setup-VSTest@v1
+
+      - name: Restore nuget packages
+        run: |
+          nuget restore .\AgilesGrupoCondor.sln
+
+      - name: Build
+        run: |
+          msbuild.exe .\AgilesGrupoCondor.sln /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
+          
+  unit_tests:
+    runs-on: windows-latest
+    name: Run Unit Tests
+    needs: build
+
+    steps:
+      - name: Run Unit Tests
+        run: vstest.console.exe .\Hangman.Tests\build\Hangman.Test.dll
+      
