@@ -8,4 +8,8 @@
     <ProjectReference Include="..\Hangman.Data\Hangman.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute" />
+  </ItemGroup>
+
 </Project>
