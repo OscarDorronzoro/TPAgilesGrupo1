@@ -12,7 +12,7 @@ namespace Hangman.infrastructure.Repository
     public class Repository<T> : IRepository<T> where T : BaseEntity
     {
         private readonly HangmanContext _Context;
-        private DbSet<T> entities;
+        private readonly DbSet<T> entities;
         public Repository(HangmanContext context)
         {
             _Context = context;

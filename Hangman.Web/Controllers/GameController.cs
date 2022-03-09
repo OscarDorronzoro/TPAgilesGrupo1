@@ -11,7 +11,7 @@ namespace Hangman.Web.Controllers
 {
     public class GameController : Controller
     {
-        private IGame _game;
+        private readonly IGame _game;
         private readonly IRepository<Games> _gameRepo;
         private readonly IRepository<Users> _usersRepo;
         public GameController(IGame game, IRepository<Games> gameRepository, IRepository<Users> usersRepository)
