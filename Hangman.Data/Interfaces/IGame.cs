@@ -6,7 +6,7 @@ namespace Hangman.Data.Interfaces
     {
         IGame Start(string username);
         IGame Config(string word, int tries = 0);
-        IGame Config(List<string> word, int tries = 0);
+        IGame Config(List<string> words, int tries = 0);
         IGame Guess(string letter);
         double GetTime();
         string Username { get; set; }
