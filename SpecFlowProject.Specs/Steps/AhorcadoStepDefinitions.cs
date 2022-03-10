@@ -2,6 +2,7 @@
 using Hangman;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System.Threading;
 using TechTalk.SpecFlow;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
@@ -16,11 +17,12 @@ namespace SpecFlowAhorcado.Specs.Steps
         private string caracter = "";
         private bool resultado;
         private IWebDriver driver;
-        private readonly string _baseUrl = "";
+        private readonly string _baseUrl = "https://ma-ahorcado.azurewebsites.net/";
 
-        public AhorcadoStepDefinitions()
+
+        public AhorcadoStepDefinitions(ScenarioContext scenarioContext)
         {
-            _baseUrl = "https://ma-ahorcado.azurewebsites.net";
+            _scenarioContext = scenarioContext;
         }
 
         [BeforeScenario]
@@ -29,7 +31,7 @@ namespace SpecFlowAhorcado.Specs.Steps
             ChromeOptions option = new ChromeOptions();
             option.AddArguments("start-maximized");
             option.AddArguments("--disable-gpu");
-            option.AddArguments("--headless");
+            //option.AddArguments("--headless");
 
             new DriverManager().SetUpDriver(new ChromeConfig());
             driver = new ChromeDriver(option);
@@ -44,7 +46,7 @@ namespace SpecFlowAhorcado.Specs.Steps
         [When("presiono el boton Play")]
         public void GivenPresionoJugar()
         {
-            var playButton = driver.FindElement(By.Id("play"));
+            var playButton = driver.FindElement(By.Name("play"));
 
             playButton.Click();
         }
@@ -60,9 +62,15 @@ namespace SpecFlowAhorcado.Specs.Steps
         [Given("ingreso el nombre: (.*)")]
         public void GivenIngresoVacio(string name)
         {
+            driver.Navigate().GoToUrl(_baseUrl);
+            Thread.Sleep(1000);
+
             var nameLabel = driver.FindElement(By.Id("Name"));
 
-            nameLabel.SendKeys(name);
+            if (!name.Equals("."))
+            {
+                nameLabel.SendKeys(name);
+            }           
         }
 
         [Given("no tecleo ningun caracter")]
