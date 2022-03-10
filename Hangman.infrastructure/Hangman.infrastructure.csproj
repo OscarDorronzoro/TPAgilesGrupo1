@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -8,4 +8,14 @@
     <ProjectReference Include="..\Hangman.Data\Hangman.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SonarQubeSetting Include="sonar.coverage.exclusions">
+      <Value>**</Value>
+    </SonarQubeSetting>
+  </ItemGroup>
+  
 </Project>

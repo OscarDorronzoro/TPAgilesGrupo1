@@ -18,6 +18,14 @@ namespace Hangman.Test
         }
 
         [Theory]
+        [InlineData(0)]
+        public void GameInitialFailsTest(int fails)
+        {
+            IGame game = new Game();
+            Assert.Equal(fails, game.Fails);
+        }
+
+        [Theory]
         [InlineData("Hernan")]
         public void UserInformationTest(string username)
         {
@@ -47,6 +55,18 @@ namespace Hangman.Test
         {
             _game.Start(username).Config(word);
             Assert.Equal("Ingenieria", _game.Word);
+        }
+
+        [Theory]
+        [InlineData("Hernan")]
+        public void CreateNewGameWithWordListTest(string username)
+        {
+            List<string> words = new List<string>();
+            words.Add("Paralelepipedo");
+            words.Add("Ingenieria");
+
+            _game.Start(username).Config(words);
+            Assert.Equal("Ingenieria", _game.RandomWords[1]);
         }
 
         [Theory]

@@ -5,12 +5,13 @@ using Hangman.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 namespace Hangman.Web.Controllers
 {
     public class GameController : Controller
     {
-        private IGame _game;
+        private readonly IGame _game;
         private readonly IRepository<Games> _gameRepo;
         private readonly IRepository<Users> _usersRepo;
         public GameController(IGame game, IRepository<Games> gameRepository, IRepository<Users> usersRepository)
@@ -135,9 +136,9 @@ namespace Hangman.Web.Controllers
                 "rosario",
             };
 
-            var randomGenerator = new Random();
+            int randomIndex = RandomNumberGenerator.GetInt32(randomString.Count - 1);
 
-            return randomString[randomGenerator.Next(0, 9)];
+            return randomString[randomIndex];
         }
     }
 }

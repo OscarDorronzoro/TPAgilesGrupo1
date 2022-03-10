@@ -14,37 +14,35 @@ namespace Hangman.Data.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.5")
+            modelBuilder.HasAnnotation("ProductVersion", "3.1.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Hangman.Data.Models.Games", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+            modelBuilder.Entity(
+                "Hangman.Data.Models.Games",
+                b =>
+                    {
+                        b.Property<int>("Id").ValueGeneratedOnAdd()
+                            .HasColumnType("int")
+                            .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
+                        b.Property<int?>("UserId").HasColumnType("int");
 
-                    b.Property<string>("Word")
-                        .HasColumnType("nvarchar(max)");
+                        b.Property<string>("Word").HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                        b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                        b.HasIndex("UserId");
 
-                    b.ToTable("Games");
-                });
+                        b.ToTable("Games");
+                    }
+            );
 
             modelBuilder.Entity("Hangman.Data.Models.Users", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int").HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Age")
                         .HasColumnType("int");
@@ -77,12 +75,10 @@ namespace Hangman.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Hangman.Data.Models.Games", b =>
-                {
-                    b.HasOne("Hangman.Data.Models.Users", "User")
-                        .WithMany()
+            modelBuilder.Entity("Hangman.Data.Models.Games", b => {
+                    b.HasOne("Hangman.Data.Models.Users", "User").WithMany()
                         .HasForeignKey("UserId");
-                });
+            });
 #pragma warning restore 612, 618
         }
     }

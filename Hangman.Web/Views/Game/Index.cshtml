@@ -8,7 +8,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>   
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
@@ -16,13 +16,13 @@
 <body>
 
     <h1 id="welcomeMessage">Hello @Model.Name</h1>
-    <h2 id="instrucciones">Instrucciones</h2>
-    <p>@Model.Instructions</p>
+    <h2 id="instructions">Instructions</h2>
+    <pre>@Model.Instructions</pre>
     <p>@Model.Tries Tries </p>
     <script>UpdateImg();</script>
     <div class=" text-center">
 
-        <img class="img-fluid mb-4" src=@urlImg />
+        <img class="img-fluid mb-4" src=@urlImg alt="Hangman picture" />
     </div>
     @if (Model.Lose)
     {
