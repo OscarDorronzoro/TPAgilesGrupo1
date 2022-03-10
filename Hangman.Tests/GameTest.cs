@@ -21,7 +21,8 @@ namespace Hangman.Test
         [InlineData(0)]
         public void GameInitialFailsTest(int fails)
         {
-            Assert.Equal(fails, _game.Fails);
+            IGame game = new Game();
+            Assert.Equal(fails, game.Fails);
         }
 
         [Theory]
