@@ -33,5 +33,6 @@ jobs:
           msbuild.exe .\AgilesGrupoCondor.sln /p:platform="Any CPU" /p:configuration="Release" /p:OutputPath=.\build
           
       - name: Run Unit Tests
-        run: vstest.console.exe .\Hangman.Tests\build\Hangman.Test.dll
+        #run: vstest.console.exe .\Hangman.Tests\build\Hangman.Test.dll
+        run: dotnet test --verbosity normal
       
