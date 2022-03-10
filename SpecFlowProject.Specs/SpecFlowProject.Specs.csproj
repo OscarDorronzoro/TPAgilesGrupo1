@@ -7,9 +7,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="99.0.4844.5100" />
     <PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.57" />
     <PackageReference Include="SpecRun.SpecFlow" Version="3.9.7" />
     <PackageReference Include="FluentAssertions" Version="6.2.0" />
+    <PackageReference Include="WebDriverManager" Version="2.12.3" />
   </ItemGroup>
 
   <ItemGroup>

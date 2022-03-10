@@ -1,16 +1,32 @@
 ﻿Feature: Ahorcado
 	Para evitar errores voy a insertar caracteres validos y vacio
 
-@ingresoCaracterInvalido
-Scenario: Ingresar caracter invalido en un juego
-	Given presiono jugar
-	And no tecleo ningun caracter
-	When presiono el boton guess
-	Then el sistema deberia decirme: Ingrese un caracter valido
+@ingresoNombreVacio
+Scenario: No ingresar ningun caracter como nombre de jugador
+	Given ingreso el nombre:  ""
+	When presiono el boton Play
+	Then el sistema no ingresa a la url del juego
 
-@ingresoCaracterInvalido
-Scenario: Ingresar caracter valido
-	Given presiono jugar
-	And tecleo el caracter A
+@ingresoNombreValido
+Scenario: Ingresar un nombre de jugador
+	Given ingreso el nombre:  Juan Perez
+	When presiono el boton Play
+	Then el sistema ingresa a la url del juego /Game/Index
+
+@ingresoCaracterValido
+Scenario: Ingresar caracter valido en un juego
+	Given ingreso el nombre:  Juan Perez
+	When presiono el boton Play
+	And ingreso un intento A
 	When presiono el boton guess
-	Then el sistema deberia decirme: Anotar el caracter en caso de ser correcto, contar un error si no corresponde a la palabra
+	Then el sistema deberia mostrar el caracter ingresado A
+
+@abrirPaginaLogin
+Scenario: Ingreso de url e ingreso al sitio web
+	Then el sistema ingresa al login del sitio web
+
+@ingresoGameWebPage
+Scenario: Ingreso al juego
+	Given ingreso el nombre:  Juan Perez
+	When presiono el boton Play
+	Then el sistema ingresa a la url del juego /Game/Index
