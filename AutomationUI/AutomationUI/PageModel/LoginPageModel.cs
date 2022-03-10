@@ -28,7 +28,7 @@ namespace PageModel
         /// </summary>
         private LazyElement NameInput
         {
-            get { return this.GetLazyElement(By.Id("name"), "Name input"); }
+            get { return this.GetLazyElement(By.Id("Name"), "Name input"); }
         }
 
         /// <summary>
