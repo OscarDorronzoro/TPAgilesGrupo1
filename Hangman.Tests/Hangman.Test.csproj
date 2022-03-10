@@ -81,8 +81,10 @@
     <AssemblyAttribute Include="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute" />
   </ItemGroup>
 
-  <PropertyGroup>
-    <SonarQubeExclude>true</SonarQubeExclude>
-  </PropertyGroup>
+  <ItemGroup>
+    <SonarQubeSetting Include="sonar.coverage.exclusions">
+      <Value>**</Value>
+    </SonarQubeSetting>
+  </ItemGroup>
   
 </Project>
