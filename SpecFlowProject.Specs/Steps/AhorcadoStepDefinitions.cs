@@ -1,6 +1,10 @@
 ﻿using FluentAssertions;
 using Hangman;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
+using WebDriverManager;
+using WebDriverManager.DriverConfigs.Impl;
 
 namespace SpecFlowAhorcado.Specs.Steps
 {
@@ -11,22 +15,54 @@ namespace SpecFlowAhorcado.Specs.Steps
         private readonly Game ahorcado = new Game();
         private string caracter = "";
         private bool resultado;
+        private IWebDriver driver;
+        private readonly string _baseUrl = "";
 
-        public AhorcadoStepDefinitions(ScenarioContext scenarioContext)
+        public AhorcadoStepDefinitions()
         {
-            _scenarioContext = scenarioContext;
+            _baseUrl = "https://ma-ahorcado.azurewebsites.net";
         }
 
-        [Given("presiono jugar")]
+        [BeforeScenario]
+        public void TestInitialize()
+        {
+            ChromeOptions option = new ChromeOptions();
+            option.AddArguments("start-maximized");
+            option.AddArguments("--disable-gpu");
+            option.AddArguments("--headless");
+
+            new DriverManager().SetUpDriver(new ChromeConfig());
+            driver = new ChromeDriver(option);
+        }
+
+        [AfterScenario]
+        public void TestCleanUp()
+        {
+            driver.Quit();
+        }
+
+        [When("presiono el boton Play")]
         public void GivenPresionoJugar()
         {
-            // Clickear UI
+            var playButton = driver.FindElement(By.Id("play"));
+
+            playButton.Click();
         }
 
-        [Given("tecleo el caracter (.*)")]
+        [When("ingreso un intento (.*)")]
         public void GivenIngresoCaracter(string character)
         {
-            this.caracter = character;
+            var guessLabel = driver.FindElement(By.Name("Letter"));
+
+            guessLabel.SendKeys(character);
+        }
+
+        [Given("ingreso el nombre: (.*)")]
+        public void GivenIngresoVacio(string name)
+        {
+            var nameLabel = driver.FindElement(By.Id("Name"));
+
+            nameLabel.SendKeys(name);
         }
 
         [Given("no tecleo ningun caracter")]
@@ -38,35 +74,41 @@ namespace SpecFlowAhorcado.Specs.Steps
         [When("presiono el boton guess")]
         public void WhenPresionoEnter()
         {
-            this.resultado = ahorcado.CheckLetter(caracter);
+            var guessButton = driver.FindElement(By.Id("guess"));
+
+            guessButton.Click();
         }
 
-        [Then("el sistema deberia decirme: (.*)")]
-        public void ThenElSistemaDeberiaDecirme(string mensaje)
+        [Then("el sistema ingresa a la url del juego (.*)")]
+        public void ThenElSistemaAvanza(string extraUrl)
         {
-            if (!this.resultado)
-            {
-                mensaje.Should().Be("Ingrese un caracter valido");
-            }
-            else
-            {
-                mensaje.Should().Be("");
-            }
+            var currentUrl = driver.Url;
 
+            currentUrl.Should().Be(_baseUrl + extraUrl);
         }
-
-        [Then("el sistema me dice: (.*)")]
-        public void ThenElSistemaMeDice(string mensaje)
+        [Then("el sistema no ingresa a la url del juego")]
+        public void ThenElSistemaNoAvanza()
         {
-            if (!this.resultado)
-            {
-                mensaje.Should().Be("Has perdido");
-            }
-            else
-            {
-                mensaje.Should().Be("");
-            }
-
+            var currentUrl = driver.Url;
+            
+            currentUrl.Should().Be(_baseUrl);
         }
+
+        [Then("el sistema deberia mostrar el caracter ingresado (.*)")]
+        public void ThenElSistemaMeDice(string character)
+        {
+            var letterGuessed = driver.FindElement(By.Id("letterUsed")).Text;
+
+            letterGuessed.Should().Be(character);
+        }
+
+        [Then("el sistema ingresa al login del sitio web")]
+        public void ThenElSistemaIngresaAlLogin()
+        {
+            var currentUrl = driver.Url;
+
+            currentUrl.Should().Be(_baseUrl);
+        }
+        
     }
 }
