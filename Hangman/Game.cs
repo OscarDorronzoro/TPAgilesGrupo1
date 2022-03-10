@@ -85,7 +85,7 @@ namespace Hangman
         {
             this.RandomWords = words;
             this.Tries = tries;
-            Debug.WriteLine($"- Game Created - Word with {this.Word.Length} letters  - Tries {this.Tries}");
+            Debug.WriteLine($"- Game Created - Word list with {this.RandomWords.Count} random words  - Tries {this.Tries}");
             ListOfWords = true;
 
             return this;
